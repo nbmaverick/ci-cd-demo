@@ -1,3 +1,6 @@
+env: 
+  action: apply
+
 name: rds_deployer
 on:
   workflow_run:
@@ -39,7 +42,7 @@ jobs:
       - name: Apply
         working-directory: rds
         run: |
-          terraform apply -auto-approve
+          terraform ${{env.action}} -auto-approve
 
           
 
